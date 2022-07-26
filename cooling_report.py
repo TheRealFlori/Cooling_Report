@@ -1,7 +1,13 @@
-# streamlit_app.py
+import streamlit as st # pip install stremlit
+import pymongo # pip install pymongo
 
-import streamlit as st
-import pymongo
+#--------------------------- SETTINGS ------------------
+page_title = "BRK Regenstauf Temperatur Überwachung"
+page_icon = ""
+layout = "centered"
+#-------------------------------------------------------
+
+st.set_page_config(page_title=page_title, layout=layout)
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
@@ -11,7 +17,7 @@ def init_connection():
 
 try:
     client = init_connection()
-    st.write("Mongo connected")
+    st.write("Mongo Database sucessfully connected")
 
 except Exception as e:
     st.write(e)
@@ -23,3 +29,4 @@ def get_data():
     mydb = client["brk-regenstauf"]
     mycol = mydb["Cooling Reporting"]
     return mycol
+
