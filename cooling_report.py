@@ -21,7 +21,3 @@ def get_data():
     return mycol
 
 values = get_data()
-
-# Print results.
-for values in values:
-    st.write(f"{values['name']} has a :{values['pet']}:")
