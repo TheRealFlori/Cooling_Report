@@ -20,7 +20,7 @@ def init_connection():
     return pymongo.MongoClient("mongodb+srv://brk-regenstauf-read:aBxpdD9AVsEAnvUk@brk-regenstauf.iw6ulrw.mongodb.net/?retryWrites=true&w=majority")
 
 try:
-    client = init_connection()
+    client = pymongo.MongoClient("mongodb+srv://brk-regenstauf-read:aBxpdD9AVsEAnvUk@brk-regenstauf.iw6ulrw.mongodb.net/?retryWrites=true&w=majority")
     st.write("Mongo Database sucessfully connected")
 
 except Exception as e:
