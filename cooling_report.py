@@ -18,6 +18,10 @@ client = init_connection()
 def get_data():
     mydb = client["brk-regenstauf"]
     mycol = mydb["Cooling Reporting"]
-    return values
+    return mycol
 
 values = get_data()
+
+# Print results.
+for values in values:
+    st.write(f"{values['name']} has a :{values['pet']}:")
