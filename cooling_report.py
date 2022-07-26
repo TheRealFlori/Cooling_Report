@@ -1,3 +1,4 @@
+from ipaddress import collapse_addresses
 import streamlit as st # pip install stremlit
 import pymongo # pip install pymongo
 
@@ -28,8 +29,9 @@ except Exception as e:
 
 # Pull data from the collection.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
-@st.experimental_memo(ttl=600)
-def get_data():
-    db = client["brk-regenstauf"]
-    col = db["Cooling Reporting"]
+#@st.experimental_memo(ttl=600)
+#def get_data():
+db = client["brk-regenstauf"]
+col = db["Cooling Reporting"]
 
+st.write(col.id + col.temperature)
