@@ -1,6 +1,4 @@
 streamlit
-http
-Adafruit_DHT
 time
 pymongo
 datetime
