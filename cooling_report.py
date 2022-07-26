@@ -34,8 +34,6 @@ except Exception as e:
 #    mycol = mydb["Cooling Reporting"]
 #    return mycol
 
-print(client.list_database_names())
-
-db = client.brk-regenstauf
+db = client["brk-regenstauf"]
 
 print(db.list_collections_names())
