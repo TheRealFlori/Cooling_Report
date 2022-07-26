@@ -7,7 +7,7 @@ import pymongo
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
 def init_connection():
-    return pymongo.MongoClient(**st.secrets["brk-regenstauf"])
+    return pymongo.MongoClient(**st.secrets["mongo"])
     st.write("Mongo connected")
 
 client = init_connection()
