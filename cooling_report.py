@@ -15,25 +15,6 @@ st.title(page_title)
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
-@st.experimental_singleton
-def init_connection():
-    return pymongo.MongoClient("mongodb+srv://brk-regenstauf-read:aBxpdD9AVsEAnvUk@brk-regenstauf.iw6ulrw.mongodb.net/?retryWrites=true&w=majority")
 
-try:
-    client = init_connection()
-    st.write("Mongo Database sucessfully connected")
-
-except Exception as e:
-    st.write(e)
-
-# Pull data from the collection.
-# Uses st.experimental_memo to only rerun when the query changes or after 10 min.
-#@st.experimental_memo(ttl=600)
-#def get_data():
-mydb = client.brk-regenstauf
-items = mydb["Cooling Reporting"].find()
-items = list(items)
-
-# Print results.
-for item in items:
-    st.write(f"{item['temperature']} has a :{item['type']}:")
+client = pymongo.MongoClient("mongodb+srv://brk-regenstauf-read:aBxpdD9AVsEAnvUk@brk-regenstauf.iw6ulrw.mongodb.net/?retryWrites=true&w=majority")
+db = client["brk-regenstauf"]
