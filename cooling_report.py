@@ -1,5 +1,4 @@
 import streamlit as st # pip install stremlit
-from pymongo import MongoClient
 import pymongo # pip install pymongo
 
 import calendar
@@ -29,12 +28,14 @@ except Exception as e:
 
 # Pull data from the collection.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
-#@st.experimental_memo(ttl=600)
-#def get_data():
-#    mydb = client["brk-regenstauf"]
-#    mycol = mydb["Cooling Reporting"]
-#    return mycol
+@st.experimental_memo(ttl=600)
+def get_data():
+    mydb = client["brk-regenstauf"]
+    mycol = mydb["Cooling Reporting"]
+    return mycol
 
-db = client["brk-regenstauf"]
+items = get_data()
 
-st.write(db.list_collections_names())
+# Print results.
+for item in items:
+    st.write(f"{item['temperature']} has a :{item['type']}:")
