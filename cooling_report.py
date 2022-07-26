@@ -30,13 +30,6 @@ except Exception as e:
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
 @st.experimental_memo(ttl=600)
 def get_data():
-    mydb = client["brk-regenstauf"]
-    items = mydb["Cooling Reporting"].find()
-    items = list(items)
-    return items
+    db = client["brk-regenstauf"]
+    col = db["Cooling Reporting"]
 
-items = get_data()
-
-# Print results.
-for item in items:
-    st.write(f"{item['temperature']} has a :{item['type']}:")
