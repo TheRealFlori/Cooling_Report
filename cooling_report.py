@@ -8,9 +8,13 @@ import pymongo
 @st.experimental_singleton
 def init_connection():
     return pymongo.MongoClient(**st.secrets["mongo"])
+
+try:
+    client = init_connection()
     st.write("Mongo connected")
 
-client = init_connection()
+except Exception as e:
+    st.write(e)
 
 # Pull data from the collection.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
