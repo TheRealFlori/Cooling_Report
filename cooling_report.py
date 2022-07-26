@@ -10,7 +10,7 @@ page_icon = "Bereitschaftslogo.jpg"
 layout = "centered"
 #-------------------------------------------------------
 
-st.set_page_config(page_title=page_title, page_icon=page_icon layout=layout)
+st.set_page_config(page_title=page_title, page_icon=page_icon, layout=layout)
 st.title(page_title + page_icon)
 
 # Initialize connection.
