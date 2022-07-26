@@ -28,14 +28,11 @@ except Exception as e:
 
 # Pull data from the collection.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
-@st.experimental_memo(ttl=600)
-def get_data():
-    mydb = client["brk-regenstauf"]
-    items = mydb["Cooling Reporting"].find()
-    items = list(items)
-    return items
-
-items = get_data()
+#@st.experimental_memo(ttl=600)
+#def get_data():
+mydb = client["brk-regenstauf"]
+items = mydb["Cooling Reporting"].find()
+items = list(items)
 
 # Print results.
 for item in items:
