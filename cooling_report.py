@@ -31,8 +31,9 @@ except Exception as e:
 @st.experimental_memo(ttl=600)
 def get_data():
     mydb = client["brk-regenstauf"]
-    mycol = mydb["Cooling Reporting"]
-    return mycol
+    items = mydb["Cooling Reporting"].find()
+    items = list(items)
+    return items
 
 items = get_data()
 
