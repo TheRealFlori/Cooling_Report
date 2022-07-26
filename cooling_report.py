@@ -35,3 +35,7 @@ except Exception as e:
 #    return mycol
 
 print(client.list_database_names())
+
+db = client.brk-regenstauf
+
+print(db.list_collections_names())
