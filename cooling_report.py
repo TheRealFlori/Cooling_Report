@@ -8,6 +8,7 @@ import pymongo
 @st.experimental_singleton
 def init_connection():
     return pymongo.MongoClient(**st.secrets["brk-regenstauf"])
+    st.write("Mongo connected")
 
 client = init_connection()
 
@@ -17,10 +18,10 @@ client = init_connection()
 def get_data():
     mydb = client["brk-regenstauf"]
     mycol = mydb["Cooling Reporting"]
-    return items
+    return values
 
-items = get_data()
+values = get_data()
 
 # Print results.
-for item in items:
+for values in values:
     st.write(f"{item['name']} has a :{item['pet']}:")
