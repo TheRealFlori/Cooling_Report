@@ -24,4 +24,4 @@ values = get_data()
 
 # Print results.
 for values in values:
-    st.write(f"{item['name']} has a :{item['pet']}:")
+    st.write(f"{values['name']} has a :{values['pet']}:")
