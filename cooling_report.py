@@ -36,4 +36,4 @@ except Exception as e:
 
 db = client["brk-regenstauf"]
 
-print(db.list_collections_names())
+st.write(db.list_collections_names())
