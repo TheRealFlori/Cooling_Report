@@ -19,5 +19,3 @@ def get_data():
     mydb = client["brk-regenstauf"]
     mycol = mydb["Cooling Reporting"]
     return mycol
-
-values = get_data()
