@@ -33,5 +33,6 @@ except Exception as e:
 #def get_data():
 db = client["brk-regenstauf"]
 col = db["Cooling Reporting"]
+test = col.find_one({'type' : "fridge"})
 
-st.write(col.id + col.temperature)
+st.write(test)
