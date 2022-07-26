@@ -11,7 +11,7 @@ layout = "centered"
 #-------------------------------------------------------
 
 st.set_page_config(page_title=page_title, page_icon=page_icon, layout=layout)
-st.title(page_title + page_icon)
+st.title(page_title)
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
@@ -33,4 +33,6 @@ def get_data():
     mydb = client["brk-regenstauf"]
     mycol = mydb["Cooling Reporting"]
     return mycol
+
+print ("collections:", get_data, "\n")
 
