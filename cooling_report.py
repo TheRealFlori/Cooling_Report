@@ -40,4 +40,4 @@ items = get_data()
 
 # Print results.
 for item in items:
-    st.write(f"{item['name']} has a :{item['pet']}:")
+    st.write(item)
