@@ -39,5 +39,4 @@ def get_data():
 items = get_data()
 
 # Print results.
-for item in items:
-    st.write(item)
+st.write(items)
