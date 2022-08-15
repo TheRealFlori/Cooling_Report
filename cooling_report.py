@@ -38,4 +38,4 @@ def get_data():
 items = get_data()
 
 # Print results.
-st.write(items)
+st.write(itemsa)
