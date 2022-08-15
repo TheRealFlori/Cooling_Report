@@ -32,10 +32,10 @@ except Exception as e:
 @st.experimental_memo(ttl=600)
 def get_data():
     db = client["brk-regenstauf"]
-    col = db["Cooling Reporting"].find_one( {}, { "type": fridge})
+    col = db["Cooling Reporting"].find_one( {}, { "type": 'fridge'})
     return col
 
 items = get_data()
 
 # Print results.
-st.write(itemsa)
+st.write(items)
