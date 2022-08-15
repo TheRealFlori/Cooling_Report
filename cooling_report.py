@@ -32,9 +32,12 @@ except Exception as e:
 @st.experimental_memo(ttl=600)
 def get_data():
     db = client["brk-regenstauf"]
-    col = db["Cooling Reporting"]
+    col = db["Cooling Reporting"].find()
+    col = list(col)
     return col
 
-test = get_data().find_one({'type' : "fridge"})
+items = get_data()
 
-st.write(test)
+# Print results.
+for item in items:
+    st.write(f"{item['name']} has a :{item['pet']}:")
