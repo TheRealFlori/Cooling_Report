@@ -29,7 +29,7 @@ except Exception as e:
 
 # Pull the collection.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
-#@st.experimental_memo(ttl=600)
+@st.experimental_memo(ttl=600)
 def get_data():
     db = client['brk-regenstauf']
     col = db['Cooling Reporting']
