@@ -27,7 +27,7 @@ try:
 except Exception as e:
     st.write(e)
 
-st.session_state['answer'] = ''!
+st.session_state['answer'] = ''
 
 st.write(st.session_state)
 
