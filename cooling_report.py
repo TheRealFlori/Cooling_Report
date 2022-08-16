@@ -29,14 +29,11 @@ except Exception as e:
 
 # Pull the collection.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
-@st.experimental_memo(ttl=600)
-def get_data():
-    db = client['brk-regenstauf']
-    col = db['Cooling Reporting']
-    return col
+#@st.experimental_memo(ttl=600)
 
-items = get_data()
+db = client['brk-regenstauf']
+col = db['Cooling Reporting']
 
 # Print results.
-for i in items.find({"type": "freezer"}):
+for i in col.find({"type": "freezer"}):
     st.write(i)
