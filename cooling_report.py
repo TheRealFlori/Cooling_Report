@@ -24,6 +24,9 @@ def init_connection():
 
 try:
     client = init_connection()
+    check = client.jack
+    ServerStat = check.command("serverStatus")
+    st.write(ServerStat)
     st.write("Mongo Database sucessfully connected")
 
 except Exception as e:
