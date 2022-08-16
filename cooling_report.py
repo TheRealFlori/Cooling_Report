@@ -44,7 +44,7 @@ def get_data():
     return col
 
 items = get_data()
+count = items.count_documents({})
 
 # Print results.
-for i in items.find({"type": "freezer"}):
-    st.write(i)
+st.write(count)
