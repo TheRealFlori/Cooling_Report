@@ -27,6 +27,12 @@ try:
 except Exception as e:
     st.write(e)
 
+chart_data = pd.DataFrame(
+     np.random.randn(20, 3),
+     columns=['a', 'b', 'c'])
+
+st.line_chart(chart_data)
+
 # Pull the collection.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
 @st.experimental_memo(ttl=600)
@@ -40,9 +46,3 @@ items = get_data()
 # Print results.
 for i in items.find({"type": "freezer"}):
     st.write(i)
-
-chart_data = pd.DataFrame(
-     np.random.randn(20, 3),
-     columns=['a', 'b', 'c'])
-
-st.line_chart(chart_data)
