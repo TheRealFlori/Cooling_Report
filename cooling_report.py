@@ -27,21 +27,6 @@ try:
 except Exception as e:
     st.write(e)
 
-st.session_state['answer'] = ''
-
-st.write(st.session_state)
-
-realans = ['', 'abc', 'edf']
-
-if  st.session_state['answer'] in realans:
-    answerStat = "correct"
-elif st.session_state['answer'] not in realans:
-    answerStat = "incorrect"
-
-st.write(st.session_state)
-st.write(answerStat)
-
-
 # Pull the collection.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
 @st.experimental_memo(ttl=600)
