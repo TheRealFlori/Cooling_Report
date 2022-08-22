@@ -57,8 +57,8 @@ col2.metric("Aktuelle Temperatur Gefrierschrank", "- 10 °C", "1.2 °C")
 
 st.subheader("Durchschnittliche Temperatur der letzten 24 Stunden")
 col1, col2 = st.columns(2)
-col1.metric("Durchschnittstemperatur im Kühlschrank", p_fridge["temperature"].mean() + " °C", "1.2 °C")
-col2.metric("Durchschnittstemperatur im Gefrierschrank", p_freezer["temperature"].mean() + " °C", "1.2 °C")
+col1.metric("Durchschnittstemperatur im Kühlschrank", p_fridge["temperature"].mean(), "1.2 °C")
+col2.metric("Durchschnittstemperatur im Gefrierschrank", p_freezer["temperature"].mean(), "1.2 °C")
 
 st.write("Freezer")
 st.write(p_freezer.get(["time", "temperature"]))
