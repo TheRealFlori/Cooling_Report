@@ -31,14 +31,17 @@ try:
     # connect to DB
     mydb = client["brk-regenstauf"]
     # get collection
-    mycol = mydb["Cooling Reporting"]
+    mycol = mydb["coolingreporting"]
 
     # get all data from collection
-    data = mycol.find({})
+    freezer = mycol.find({"type": "freezer"})
+    fridge = mycol.find({"type": "fridge"})
     # convert to pandas dataframe
-    df = pd.DataFrame(data)
+    p_freezer = pd.DataFrame(freezer)
+    p_fridge = pd.DataFrame(fridge)
     # print data
-    print(df)
+    print(freezer)
+    print(fridge)
 
 except Exception as e:
     st.write(e)
@@ -59,5 +62,3 @@ chart_data = pd.DataFrame(
     columns=['Temperatur Kühlschrank', 'Temperatur Gefrierschrank'])
 
 st.line_chart(chart_data)
-
-st.write(df)
