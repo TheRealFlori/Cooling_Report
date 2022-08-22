@@ -62,4 +62,4 @@ chart_data = pd.DataFrame(
     columns=['Temperatur Kühlschrank', 'Temperatur Gefrierschrank'])
 
 for freezer in p_freezer:
-    st.write(freezer["type"], freezer["time"], freezer["temperature"])
+    st.write(freezer["type"])
