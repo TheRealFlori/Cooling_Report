@@ -40,7 +40,9 @@ try:
     p_freezer = pd.DataFrame(freezer)
     p_fridge = pd.DataFrame(fridge)
     # print data
+    print("freezer")
     print(p_freezer)
+    print("fridge")
     print(p_fridge)
 
 except Exception as e:
@@ -62,4 +64,5 @@ chart_data = pd.DataFrame(
     columns=['Temperatur Kühlschrank', 'Temperatur Gefrierschrank'])
 
 for x in p_freezer:
-    st.write(x)
+    st.write("Freezer")
+    st.write(x.get(["time", "temperature"]))
