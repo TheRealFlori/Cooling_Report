@@ -31,7 +31,7 @@ try:
     # connect to DB
     mydb = client["brk-regenstauf"]
     # get collection
-    mycol = mydb["coolingreporting"]
+    mycol = mydb["Cooling Reporting"]
 
     # get all data from collection
     data = mycol.find({})
@@ -39,8 +39,6 @@ try:
     df = pd.DataFrame(data)
     # print data
     print(df)
-
-
 
 except Exception as e:
     st.write(e)
