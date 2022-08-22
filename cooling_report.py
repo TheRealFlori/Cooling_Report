@@ -47,8 +47,12 @@ col1, col2 = st.columns(2)
 col1.metric("Aktuelle Temperatur Kühlschrank", "10 °C", "1.2 °C")
 col2.metric("Aktuelle Temperatur Gefrierschrank", "- 10 °C", "1.2 °C")
 
+col1, col2 = st.columns(2)
+col1.metric("Durchschnittstemperatur der letzten 24 h im Kühlschrank", "10 °C", "1.2 °C")
+col2.metric("Durchschnittstemperatur der letzten 24 h im Gefrierschrank", "- 10 °C", "1.2 °C")
+
 chart_data = pd.DataFrame(
     np.random.randn(20, 3),
-    columns=['a', 'b', 'c'])
+    columns=['Temperatur Kühlschrank', 'Temperatur Gefrierschrank'])
 
 st.line_chart(chart_data)
