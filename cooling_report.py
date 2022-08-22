@@ -60,15 +60,15 @@ col1, col2 = st.columns(2)
 col1.metric("Durchschnittstemperatur im Kühlschrank", p_fridge["temperature"].mean(), "1.2 °C")
 col2.metric("Durchschnittstemperatur im Gefrierschrank", p_freezer["temperature"].mean(), "1.2 °C")
 
-st.write("Freezer")
-st.write(p_freezer.get(["time", "temperature"]))
+st.subheader("Test")
+col1, col2 = st.columns(2)
+col1.write("Freezer")
+col1.write(p_freezer.get(["time", "temperature"]))
 
-st.write("Fridge")
-st.write(p_fridge.get(["time", "temperature"]))
+col2.write("Fridge")
+col2.write(p_fridge.get(["time", "temperature"]))
 
 st.line_chart(df)
-
-st.line_chart(df, columns="type", x="time", y="temperature")
 
 chart_data = pd.DataFrame(
     df.get("time"),
