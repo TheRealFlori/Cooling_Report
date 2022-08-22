@@ -8,7 +8,7 @@ import calendar
 import datetime
 
 # --------------------------- SETTINGS ------------------
-page_title = "BRK Regenstauf Temperatur Überwachung"
+page_title = "BRK-Regenstauf Temperatur Überwachung"
 page_icon = "Bereitschaftslogo.jpg"
 layout = "centered"
 # -------------------------------------------------------
@@ -42,6 +42,10 @@ try:
 
 except Exception as e:
     st.write(e)
+
+col1, col2 = st.columns(2)
+col1.metric("Aktuelle Temperatur Kühlschrank", "10 °C", "1.2 °C")
+col2.metric("Aktuelle Temperatur Gefrierschrank", "- 10 °C", "1.2 °C")
 
 chart_data = pd.DataFrame(
     np.random.randn(20, 3),
