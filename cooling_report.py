@@ -61,5 +61,5 @@ chart_data = pd.DataFrame(
     np.random.randn(50, 2),
     columns=['Temperatur Kühlschrank', 'Temperatur Gefrierschrank'])
 
-for x in freezer:
+for x in p_freezer:
     st.write(x)
