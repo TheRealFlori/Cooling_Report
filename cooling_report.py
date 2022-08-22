@@ -43,16 +43,21 @@ try:
 except Exception as e:
     st.write(e)
 
+st.title("Aktuelle Temperatur")
 col1, col2 = st.columns(2)
 col1.metric("Aktuelle Temperatur Kühlschrank", "10 °C", "1.2 °C")
 col2.metric("Aktuelle Temperatur Gefrierschrank", "- 10 °C", "1.2 °C")
 
+st.title("Durchschnittliche Temperatur der letzten 24 Stunden")
 col1, col2 = st.columns(2)
 col1.metric("Durchschnittstemperatur der letzten 24 h im Kühlschrank", "10 °C", "1.2 °C")
 col2.metric("Durchschnittstemperatur der letzten 24 h im Gefrierschrank", "- 10 °C", "1.2 °C")
 
+st.title("Temperaturverlauf")
 chart_data = pd.DataFrame(
     np.random.randn(20, 2),
     columns=['Temperatur Kühlschrank', 'Temperatur Gefrierschrank'])
 
 st.line_chart(chart_data)
+
+st.write(df)
