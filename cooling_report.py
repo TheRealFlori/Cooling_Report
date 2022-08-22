@@ -66,4 +66,10 @@ st.write(p_freezer.get(["time", "temperature"]))
 st.write("Fridge")
 st.write(p_fridge.get(["time", "temperature"]))
 
-st.line_chart(df.get("type"), x=df.get("time"), y=df.get("temperature"))
+st.line_chart(df)
+
+chart_data = pd.DataFrame(
+     df.get(["time", "temperature"]),
+     columns=df.get("type"))
+
+st.line_chart(chart_data)
