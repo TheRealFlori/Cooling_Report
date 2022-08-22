@@ -24,26 +24,18 @@ def init_connection():
     print("Initializing connection...")
     return pymongo.MongoClient((st.secrets["url"]).conn)
 
+
 try:
+    # get Client
     client = init_connection()
-
-except Exception as e_con:
-    st.write("Error:", e_con)
-
-# Pull data from the collection.
-# Uses st.experimental_memo to only rerun when the query changes or after 10 min.
-@st.experimental_memo(ttl=600)
-def get_data():
     # connect to DB
     mydb = client["brk-regenstauf"]
     # get collection
     mycol = mydb["coolingreporting"]
-    return mycol
 
-try:
     # get all data from collection
-    freezer = get_data().find({"type": "freezer"})
-    fridge = get_data().find({"type": "fridge"})
+    freezer = mycol.find({"type": "freezer"})
+    fridge = mycol.find({"type": "fridge"})
     # convert to pandas dataframe
     p_freezer = pd.DataFrame(freezer)
     p_fridge = pd.DataFrame(fridge)
