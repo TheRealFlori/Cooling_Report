@@ -34,7 +34,7 @@ try:
     mycol = mydb["coolingreporting"]
 
     # get all data from collection
-    freezer = mycol.find({"_id": "63038a7f47cafa608d864951"})
+    freezer = mycol.find({"type": "freezer"})
     fridge = mycol.find({"type": "fridge"})
     # convert to pandas dataframe
     p_freezer = pd.DataFrame(freezer)
@@ -61,4 +61,5 @@ chart_data = pd.DataFrame(
     np.random.randn(50, 2),
     columns=['Temperatur Kühlschrank', 'Temperatur Gefrierschrank'])
 
-st.write(freezer["type"])
+for x in freezer:
+    st.write(x)
