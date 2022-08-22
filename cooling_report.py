@@ -48,8 +48,8 @@ except Exception as e:
 
 st.subheader("Aktuelle Temperatur")
 col1, col2 = st.columns(2)
-col1.metric("Aktuelle Temperatur Kühlschrank", p_fridge['temperature'].iloc(-1) + " °C", "1.2 °C")
-col2.metric("Aktuelle Temperatur Gefrierschrank", p_freezer['temperature'].iloc(-1) + " °C", "1.2 °C")
+col1.metric("Aktuelle Temperatur Kühlschrank", "10 °C", "1.2 °C")
+col2.metric("Aktuelle Temperatur Gefrierschrank", "- 10 °C", "1.2 °C")
 
 st.subheader("Durchschnittliche Temperatur der letzten 24 Stunden")
 col1, col2 = st.columns(2)
@@ -61,5 +61,5 @@ chart_data = pd.DataFrame(
     np.random.randn(50, 2),
     columns=['Temperatur Kühlschrank', 'Temperatur Gefrierschrank'])
 
-for x in p_freezer:
+for x in freezer:
     st.write(x)
