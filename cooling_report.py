@@ -61,4 +61,7 @@ chart_data = pd.DataFrame(
     Temp=(p_freezer, 2),
     columns=['Temperatur Kühlschrank', 'Temperatur Gefrierschrank'])
 
+for freezer in p_freezer:
+    st.write(freezer["type"], freezer["time"], freezer["temperature"])
+
 st.line_chart(p_freezer)
