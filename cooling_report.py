@@ -65,4 +65,7 @@ chart_data = pd.DataFrame(
 
 
 st.write("Freezer")
-st.write(p_freezer.describe())
+st.write(p_freezer.get(["time", "temperature"]))
+
+st.write("Fridge")
+st.write(p_fridge.get(["time", "temperature"]))
