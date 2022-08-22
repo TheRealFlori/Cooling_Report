@@ -69,7 +69,8 @@ st.write(p_fridge.get(["time", "temperature"]))
 st.line_chart(df)
 
 chart_data = pd.DataFrame(
-     df.get(["time", "temperature"]),
-     columns=df.get("type"))
+    df.get("time"),
+    df.get("temperature"),
+    columns=df.get("type"))
 
 st.line_chart(chart_data)
