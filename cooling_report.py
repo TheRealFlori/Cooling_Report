@@ -65,4 +65,4 @@ chart_data = pd.DataFrame(
 
 for x in p_freezer:
     st.write("Freezer")
-    st.write(x.get(["time", "temperature"]))
+    st.write(x.get("time"))
