@@ -36,9 +36,11 @@ try:
     # get all data from collection
     freezer = mycol.find({"type": "freezer"})
     fridge = mycol.find({"type": "fridge"})
+    col = mycol.find({})
     # convert to pandas dataframe
     p_freezer = pd.DataFrame(freezer)
     p_fridge = pd.DataFrame(fridge)
+    df = pd.DataFrame(col)
     # print data
     print("freezer")
     print(p_freezer)
@@ -58,14 +60,10 @@ col1, col2 = st.columns(2)
 col1.metric("Durchschnittstemperatur der letzten 24 h im Kühlschrank", "10 °C", "1.2 °C")
 col2.metric("Durchschnittstemperatur der letzten 24 h im Gefrierschrank", "- 10 °C", "1.2 °C")
 
-st.subheader("Temperaturverlauf")
-chart_data = pd.DataFrame(
-    np.random.randn(50, 2),
-    columns=['Temperatur Kühlschrank', 'Temperatur Gefrierschrank'])
-
-
 st.write("Freezer")
 st.write(p_freezer.get(["time", "temperature"]))
 
 st.write("Fridge")
 st.write(p_fridge.get(["time", "temperature"]))
+
+st.line_chart(df.get(["type", "time", "temperature"]))
