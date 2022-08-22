@@ -58,7 +58,7 @@ col2.metric("Durchschnittstemperatur der letzten 24 h im Gefrierschrank", "- 10 
 
 st.subheader("Temperaturverlauf")
 chart_data = pd.DataFrame(
-    np.random.randn(p_freezer, 2),
+    np.random.randn(50, 2),
     columns=['Temperatur Kühlschrank', 'Temperatur Gefrierschrank'])
 
 for freezer in p_freezer:
