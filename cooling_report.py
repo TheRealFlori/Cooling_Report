@@ -75,7 +75,7 @@ chart_data = pd.DataFrame(
     y=df.get("temperature"),
     columns=df.get("type"))
 
-st.line_chart(x=df.get("time"), y=df.get("temperature"))
+st.line_chart(data=df, x=df.get("time"), y=df.get("temperature"))
 
 #for seconds in range(200):
 #xxx
