@@ -68,14 +68,14 @@ col1.write(p_freezer.get(["time", "temperature"]))
 col2.write("Fridge")
 col2.write(p_fridge.get(["time", "temperature"]))
 
-st.line_chart(df.get(["time", "temperature", "type"]))
+st.line_chart(df.get(["time", "temperature"]))
 
 chart_data = pd.DataFrame(
     df.get("time"),
     df.get("temperature"),
     columns=df.get("type"))
 
-st.altair_chart(chart_data)
+st.line_chart(chart_data)
 
 #for seconds in range(200):
 #xxx
