@@ -68,6 +68,8 @@ col1.write(p_freezer.get(["time", "temperature"]))
 col2.write("Fridge")
 col2.write(p_fridge.get(["time", "temperature"]))
 
+st.write(col)
+
 st.line_chart(df)
 
 chart_data = pd.DataFrame(
