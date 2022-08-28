@@ -77,6 +77,8 @@ chart_data = pd.DataFrame(
 
 st.line_chart(chart_data)
 
+st.line_chart(x=df.get("time"), y=df.get("temperature"))
+
 #for seconds in range(200):
 #xxx
 #time.sleet(1)
