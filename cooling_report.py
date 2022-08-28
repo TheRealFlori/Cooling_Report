@@ -37,7 +37,7 @@ try:
     freezer = mycol.find({"type": "freezer"})
     fridge = mycol.find({"type": "fridge"})
     col = mycol.find({})
-    col["time"] = pd.to_datetime(col["time"])
+    col = pd.to_datetime(col["time"])
     # convert to pandas dataframe
     p_freezer = pd.DataFrame(freezer)
     p_fridge = pd.DataFrame(fridge)
