@@ -7,6 +7,9 @@ import numpy as np
 import calendar
 import datetime
 
+from numpy.distutils.fcompiler import none
+from streamlit.elements.arrow_altair import _melt_data
+
 # --------------------------- SETTINGS ------------------
 page_title = "BRK-Regenstauf Temperatur Überwachung"
 page_icon = "Bereitschaftslogo.jpg"
@@ -38,47 +41,35 @@ try:
     fridge = mycol.find({"type": "fridge"})
     col = mycol.find({})
     # convert to pandas dataframe
-    p_freezer = pd.DataFrame(freezer)
-    p_fridge = pd.DataFrame(fridge)
+    pfreezer = pd.DataFrame(freezer)
+    pfridge = pd.DataFrame(fridge)
     df = pd.DataFrame(col)
     # print data
     print("freezer")
-    print(p_freezer)
+    print(pfreezer)
     print("fridge")
-    print(p_fridge)
+    print(pfridge)
 
 except Exception as e:
     st.write(e)
 
 st.subheader("Aktuelle Temperatur")
 col1, col2 = st.columns(2)
-col1.metric("Aktuelle Temperatur Kühlschrank", p_fridge.get("temperature").iloc[-1:], "1.2 °C")
-col2.metric("Aktuelle Temperatur Gefrierschrank", p_freezer.get("temperature").iloc[-1:], "1.2 °C")
+col1.metric("Aktuelle Temperatur Kühlschrank", pfridge.get("temperature").iloc[-1:], "1.2 °C")
+col2.metric("Aktuelle Temperatur Gefrierschrank", pfreezer.get("temperature").iloc[-1:], "1.2 °C")
 
 st.subheader("Durchschnittliche Temperatur der letzten 24 Stunden")
 col1, col2 = st.columns(2)
-col1.metric("Durchschnittstemperatur im Kühlschrank", p_fridge["temperature"].mean(), "1.2 °C")
-col2.metric("Durchschnittstemperatur im Gefrierschrank", p_freezer["temperature"].mean(), "1.2 °C")
+col1.metric("Durchschnittstemperatur im Kühlschrank", pfridge["temperature"].mean(), "1.2 °C")
+col2.metric("Durchschnittstemperatur im Gefrierschrank", pfreezer["temperature"].mean(), "1.2 °C")
 
-st.subheader("Test")
-col1, col2 = st.columns(2)
-col1.write("Freezer")
-col1.write(p_freezer.get(["time", "temperature"]))
+st.subheader("Diagrams")
+st.write("Freezer")
+# plot "time" and "temperature" of fridge
+data = pfridge.get(["time", "temperature"])
+st.line_chart(data=data, y="temperature", x="time")
 
-col2.write("Fridge")
-col2.write(p_fridge.get(["time", "temperature"]))
-
-st.line_chart(df.get(["time", "temperature"]))
-
-chart_data = pd.DataFrame(
-    df.get("time"),
-    df.get("temperature"),
-    columns=df.get("type"))
-
-st.line_chart(chart_data)
-
-st.line_chart(data=none, x=df.get("time"), y=df.get("temperature"))
-
-#for seconds in range(200):
-#xxx
-#time.sleet(1)
+st.write("Fridge")
+# plot "time" and "temperature" of freeze
+data = pfreezer.get(["time", "temperature"])
+st.line_chart(data=data, y="temperature", x="time")
