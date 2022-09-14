@@ -55,13 +55,13 @@ except Exception as e:
 
 st.subheader("Aktuelle Temperatur")
 col1, col2 = st.columns(2)
-col1.metric("Aktuelle Temperatur Kühlschrank", pfridge.get("temperature").iloc[-1:], "1.2 °C")
+col1.metric("Aktuelle Temperatur Kühlschrank", pfridge.get("temperature").iloc[-1:] , "1.2 °C")
 col2.metric("Aktuelle Temperatur Gefrierschrank", pfreezer.get("temperature").iloc[-1:], "1.2 °C")
 
 st.subheader("Durchschnittliche Temperatur der letzten 24 Stunden")
 col1, col2 = st.columns(2)
-col1.metric("Durchschnittstemperatur im Kühlschrank", pfridge["temperature"].mean(), "1.2 °C")
-col2.metric("Durchschnittstemperatur im Gefrierschrank", pfreezer["temperature"].mean(), "1.2 °C")
+col1.metric("Durchschnittstemperatur im Kühlschrank", round(pfridge["temperature"].mean(),3), "1.2 °C")
+col2.metric("Durchschnittstemperatur im Gefrierschrank", round(pfreezer["temperature"].mean(),3), "1.2 °C")
 
 st.subheader("Diagrams")
 st.write("Freezer")
